@@ -18,3 +18,7 @@ jobs:
       - name: List Files
         run: |
           echo "I am learning"
+      
+      -name: Install Dependencies 
+        run:
+          pip install -r requirements.txt
