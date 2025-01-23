@@ -52,10 +52,13 @@ jobs:
       run:  |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/flask-pipeline:${{ github.sha }} .
         docker push ${{ secrets.DOCKER_USERNAME }}/flask-pipeline:${{ github.sha }}
-
+    - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Deploy Container APP
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'anil1'
+        app-name: 'anil'
         public-profile: ${{secrets.AZURE_WEBAPP_PUBLISH_PROFILE}}
         images: '${{secrets.DOCKER_USERNAME }}/flask-pipeline:${{github.sha}}'
