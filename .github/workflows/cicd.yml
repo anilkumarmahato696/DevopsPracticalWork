@@ -34,3 +34,18 @@ jobs:
       - name: Run tests
         run: |
           pytest
+
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out branch
+      uses: actions/checkout@v4
+
+    - name: Docker login
+      usues: docker/login-action@v2
+      with:
+        username: ${{secrets.Docker_UserName}}
+        password: ${{secrets.Docker_Password}}
+
