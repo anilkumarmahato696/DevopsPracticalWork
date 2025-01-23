@@ -50,5 +50,7 @@ jobs:
 
     - name: Build and push Image
       run:  |
+        docker build -t anilkumarmahato/Images:${{github.sha}} .
+        docker push anilkumarmahato/Images:${{github.sha}}
         docker build -t ${{ secrets.DOCKER_USERNAME }}/flask-pipeline:${{ github.sha }} .
         docker push ${{ secrets.DOCKER_USERNAME }}/flask-pipeline:${{ github.sha }}
