@@ -50,6 +50,6 @@ jobs:
 
     - name: Build and push Image
       run:  |
-        docker build anilkumarmahato/Image-Latest:${{github.sha}} .
-        docker push anilkumarmahato/Image-Latest:${{github.sha}} 
+        docker build anilkumarmahato696/DevopsPracticalWork:${{github.sha}} .
+        docker push anilkumarmahato696/DevopsPracticalWork:${{github.sha}} 
         
